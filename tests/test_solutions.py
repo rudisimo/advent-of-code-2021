@@ -5,11 +5,11 @@ from typing import List
 import pytest
 
 
-def solve_puzzle(day: int, puzzle: int, input: List[str]) -> str:
+def solve_puzzle(day: int, part: int, input: List[str]) -> str:
     try:
-        solver = getattr(importlib.import_module(f"aoc.day_{day:0{2}}"), f"answer_{puzzle}")
+        solver = getattr(importlib.import_module(f"aoc.day_{day:0{2}}"), f"answer_{part}")
     except (AttributeError, ModuleNotFoundError) as e:
-        raise NotImplementedError(f"no implementation: aoc.day_{day:0{2}}:answer_{puzzle} ({e})")
+        raise NotImplementedError(f"no implementation: aoc.day_{day:0{2}}:answer_{part} ({e})")
     else:
         return str(solver(input))
 
