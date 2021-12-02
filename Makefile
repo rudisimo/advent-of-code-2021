@@ -1,6 +1,6 @@
 SHELL  := /bin/bash
-# OPTION:PYTHON           Python binary (default: python3)
-PYTHON := $(shell builtin command -v python3)
+# OPTION:PYTHON           Python binary (default: python)
+PYTHON := $(shell builtin command -v python)
 
 .DEFAULT: help
 all: help
