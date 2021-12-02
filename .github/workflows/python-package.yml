@@ -25,8 +25,6 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m venv .venv
-        source .venv/bin/activate
         make bootstrap
     - name: Run linter
       run: |
