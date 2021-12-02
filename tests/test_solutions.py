@@ -9,7 +9,7 @@ def solve_puzzle(day: int, part: int, input: List[str]) -> str:
     try:
         solver = getattr(importlib.import_module(f"aoc.day_{day:0{2}}"), f"answer_{part}")
     except (AttributeError, ModuleNotFoundError) as e:
-        raise NotImplementedError(f"no implementation: aoc.day_{day:0{2}}:answer_{part} ({e})")
+        raise NotImplementedError(f"aoc.day_{day:0{2}}.answer_{part}: {e}")
     else:
         return str(solver(input))
 
@@ -19,6 +19,7 @@ def solve_puzzle(day: int, part: int, input: List[str]) -> str:
     [
         pytest.param(1, 1, id="1-1"),
         pytest.param(1, 2, id="1-2"),
+        pytest.param(2, 1, id="2-1"),
     ],
 )
 def test_should_solve_puzzle(load_fixture, day: int, part: int) -> None:
@@ -27,4 +28,4 @@ def test_should_solve_puzzle(load_fixture, day: int, part: int) -> None:
         for (input, expected) in fixtures:
             assert solve_puzzle(day, part, input) == expected
     except (FileNotFoundError, NotImplementedError) as e:
-        pytest.skip(f"Skipping {day}-{part}: ({e})")
+        pytest.skip(f"Reason: {e}")
