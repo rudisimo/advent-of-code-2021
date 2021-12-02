@@ -1,3 +1,5 @@
+import importlib
+
 from glob import glob
 from pathlib import Path
 from typing import List
@@ -8,8 +10,21 @@ import pytest
 
 
 @pytest.fixture
+def solve_puzzle():
+    def wrapper(day: int, part: int, input: List[str]) -> Optional[str]:
+        try:
+            solver = getattr(importlib.import_module(f"aoc.day_{day:0{2}}"), f"answer_{part}")
+        except (AttributeError, ModuleNotFoundError) as e:
+            raise NotImplementedError(f"aoc.day_{day:0{2}}.answer_{part}: {e}")
+        else:
+            return str(solver(input))
+
+    return wrapper
+
+
+@pytest.fixture
 def load_fixture():
-    def _wrapper(day: int, part: int) -> Tuple[List[str], Optional[str]]:
+    def wrapper(day: int, part: int) -> Tuple[List[str], Optional[str]]:
         fixtures = glob(f"{Path().absolute()}/tests/fixtures/{day:0{2}}*.txt")
         for fixture in fixtures:
             try:
@@ -21,4 +36,4 @@ def load_fixture():
         if not fixtures:
             raise FileNotFoundError(f"no fixtures: tests/fixtures/{day:0{2}}*.txt")
 
-    return _wrapper
+    return wrapper

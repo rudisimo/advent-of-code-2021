@@ -1,17 +1,4 @@
-import importlib
-
-from typing import List
-
 import pytest
-
-
-def solve_puzzle(day: int, part: int, input: List[str]) -> str:
-    try:
-        solver = getattr(importlib.import_module(f"aoc.day_{day:0{2}}"), f"answer_{part}")
-    except (AttributeError, ModuleNotFoundError) as e:
-        raise NotImplementedError(f"aoc.day_{day:0{2}}.answer_{part}: {e}")
-    else:
-        return str(solver(input))
 
 
 @pytest.mark.parametrize(
@@ -22,7 +9,7 @@ def solve_puzzle(day: int, part: int, input: List[str]) -> str:
         pytest.param(2, 1, id="2-1"),
     ],
 )
-def test_should_solve_puzzle(load_fixture, day: int, part: int) -> None:
+def test_should_solve_puzzle(load_fixture, solve_puzzle, day: int, part: int) -> None:
     try:
         fixtures = load_fixture(day, part)
         for (input, expected) in fixtures:
