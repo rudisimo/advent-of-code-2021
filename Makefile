@@ -23,23 +23,23 @@ clean:
 .PHONY: format
 # TARGET:format           Apply formatting rules to Python files
 format:
-	@$(PYTHON) -m isort src tests
-	@$(PYTHON) -m black src tests
+	@$(PYTHON) -m poetry run isort src tests
+	@$(PYTHON) -m poetry run black src tests
 
 .PHONY: lint
 # TARGET:lint             Apply linting rules to Python files
 lint:
-	@$(PYTHON) -m flake8 src tests --count --show-source --statistics
+	@$(PYTHON) -m poetry run flake8 src tests --count --show-source --statistics
 
 .PHONY: test
 # TARGET:test             Run unit tests
 test:
-	@$(PYTHON) -m pytest --no-cov --verbose
+	@$(PYTHON) -m poetry run pytest --no-cov --verbose
 
 .PHONY: coverage
 # TARGET:coverage         Generate code coverage artifacts
 coverage:
-	@$(PYTHON) -m pytest --cov=. --cov-config=.coveragerc --cov-report=xml --cov-report=html --cov-context=test
+	@$(PYTHON) -m poetry run pytest --cov=. --cov-config=.coveragerc --cov-report=xml --cov-report=html --cov-context=test
 
 .PHONY: help
 # TARGET:help
