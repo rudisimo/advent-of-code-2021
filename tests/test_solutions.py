@@ -8,8 +8,8 @@ import pytest
 def solve_puzzle(day: int, puzzle: int, input: List[str]) -> str:
     try:
         solver = getattr(importlib.import_module(f"aoc.day_{day:0{2}}"), f"answer_{puzzle}")
-    except (AttributeError, ModuleNotFoundError):
-        raise NotImplementedError(f"no implementation: aoc.day_{day:0{2}}:answer_{puzzle}")
+    except (AttributeError, ModuleNotFoundError) as e:
+        raise NotImplementedError(f"no implementation: aoc.day_{day:0{2}}:answer_{puzzle} ({e})")
     else:
         return str(solver(input))
 

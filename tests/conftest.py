@@ -18,7 +18,7 @@ def load_fixture():
                     yield (samples[0].splitlines(), samples[part].strip())
             except (IndexError):
                 yield ([], None)
-        else:
+        if not fixtures:
             raise FileNotFoundError(f"no fixtures: tests/fixtures/{day:0{2}}*.txt")
 
     return _wrapper
