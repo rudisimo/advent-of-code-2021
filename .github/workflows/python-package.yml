@@ -28,7 +28,9 @@ jobs:
         make bootstrap
     - name: Run linter
       run: |
+        poetry shell
         make lint
     - name: Run unit tests
       run: |
+        poetry shell
         make test
