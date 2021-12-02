@@ -1,0 +1,33 @@
+[run]
+source = .
+branch = True
+parallel = True
+omit = tests/*
+
+[html]
+directory = coverage.html
+show_contexts = true
+
+[report]
+omit =
+  confest.py
+  tests/*
+  */site-packages/*
+  .venv/*
+fail_under = 90
+precision = 2
+ignore_errors = True
+show_missing = True
+skip_empty = True
+exclude_lines =
+    # a more strict default pragma
+    \# pragma: no cover\b
+
+    # allow defensive code
+    ^\s*raise AssertionError\b
+    ^\s*raise NotImplementedError\b
+    ^\s*return NotImplemented\b
+    ^\s*raise$
+
+    # non-runnable code
+    if __name__ == ['"]__main__["']:$
