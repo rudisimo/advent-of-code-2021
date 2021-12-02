@@ -31,6 +31,15 @@ pre-commit = "^2.9.3"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+minversion = 6.0
+addopts = "--strict-markers -ra"
+xfail_strict = true
+testpaths = [
+  "tests",
+]
+
+
 [tool.isort]
 profile = "black"
 py_version = 38

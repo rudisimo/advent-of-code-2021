@@ -88,3 +88,7 @@ def answer_1(input: List[str]) -> int:
     result = reduce(measure, list(map(int, input)), None)
 
     return result
+
+
+def answer_2(input: List[str]) -> int:
+    raise NotImplementedError("I need to implement this shit!")

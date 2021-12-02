@@ -18,6 +18,7 @@ def solve_puzzle(day: int, puzzle: int, input: List[str]) -> str:
     "day,part",
     [
         pytest.param(1, 1, id="1-1"),
+        pytest.param(1, 2, id="1-2"),
     ],
 )
 def test_should_solve_puzzle(load_fixture, day: int, part: int) -> None:
