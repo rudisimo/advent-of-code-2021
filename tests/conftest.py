@@ -24,8 +24,8 @@ def solve_puzzle():
 
 @pytest.fixture
 def load_fixture():
-    def wrapper(day: int, part: int) -> Tuple[List[str], Optional[str]]:
-        fixtures = glob(f"{Path().absolute()}/tests/fixtures/{day:0{2}}*.txt")
+    def wrapper(day: int, part: int, pattern: str = "*") -> Tuple[List[str], Optional[str]]:
+        fixtures = glob(f"{Path().absolute()}/tests/fixtures/{day:0{2}}-{pattern}.txt")
         for fixture in fixtures:
             try:
                 with open(fixture) as f:

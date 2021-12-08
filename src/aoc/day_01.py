@@ -1,20 +1,8 @@
 from collections import deque
 from functools import reduce
-from functools import wraps
-from typing import Callable
 from typing import List
 
-
-def queue_decorator(func: Callable, maxlen: int = 2):
-    """Decorator for injecting a queue into our reduce function."""
-    queue = deque([], maxlen=maxlen)
-
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        result = func(queue, *args, **kwargs)
-        return result
-
-    return wrapper
+from aoc.utils import queue_decorator
 
 
 @queue_decorator
