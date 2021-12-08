@@ -7,7 +7,9 @@ import pytest
         pytest.param(1, 1, "*", id="1-1"),
         pytest.param(1, 2, "*", id="1-2"),
         pytest.param(2, 1, "*", id="2-1"),
-        pytest.param(2, 2, "*", id="2-1"),
+        pytest.param(2, 2, "*", id="2-2"),
+        pytest.param(3, 1, "*", id="3-1"),
+        pytest.param(3, 2, "*", id="3-2"),
     ],
 )
 def test_should_solve_puzzle(load_fixture, solve_puzzle, day: int, part: int, pattern: str) -> None:
