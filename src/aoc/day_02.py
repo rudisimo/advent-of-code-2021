@@ -23,7 +23,7 @@ class Move:
         return Move(Direction(direction), int(distance))
 
 
-def answer_1(input: List[str]) -> int:
+def solution_1(input: List[str]) -> int:
     horizontal_position: int = 0
     depth: int = 0
 
@@ -39,7 +39,7 @@ def answer_1(input: List[str]) -> int:
     return horizontal_position * depth
 
 
-def answer_2(input: List[str]) -> int:
+def solution_2(input: List[str]) -> int:
     horizontal_position: int = 0
     depth: int = 0
     aim: int = 0

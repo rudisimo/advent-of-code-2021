@@ -62,14 +62,14 @@ def partition(items: List[int], maxlen: int):
         yield values
 
 
-def answer_1(input: List[str]) -> int:
+def solution_1(input: List[str]) -> int:
     normalized_list = list(map(int, input))
     result = reduce(measurement_counter, normalized_list, None)
 
     return result
 
 
-def answer_2(input: List[str]) -> int:
+def solution_2(input: List[str]) -> int:
     normalized_list = list(map(int, input))
     partitioned_list = [sum(p) for p in partition(normalized_list, 3)]
     result = reduce(measurement_counter, partitioned_list, None)

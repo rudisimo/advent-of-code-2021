@@ -39,7 +39,7 @@ class Condition:
         return Condition(self.bits)
 
 
-def answer_1(input: List[str]) -> int:
+def solution_1(input: List[str]) -> int:
     gamma_rate = Condition()
     epsilon_rate = Condition()
 
@@ -54,7 +54,7 @@ def answer_1(input: List[str]) -> int:
     return power_consumption
 
 
-def answer_2(input: List[str]) -> int:
+def solution_2(input: List[str]) -> int:
     o2_scrubber_rating = Condition()
     co2_scrubber_rating = Condition()
 
