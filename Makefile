@@ -29,7 +29,7 @@ format:
 .PHONY: lint
 # TARGET:lint             Apply linting rules to Python files
 lint:
-	@$(PYTHON) -m poetry run flake8 src tests --count --show-source --statistics
+	@$(PYTHON) -m poetry run flake8 src tests --show-source --statistics
 
 .PHONY: test
 # TARGET:test             Run unit tests
