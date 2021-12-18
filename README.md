@@ -19,6 +19,12 @@ Update and install project dependencies:
 make bootstrap
 ```
 
+Check solutions:
+
+```bash
+make test
+```
+
 ## License
 
 This software is available under the following licenses:
