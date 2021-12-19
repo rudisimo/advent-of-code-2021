@@ -32,13 +32,15 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "DEBUG"
+log_format = "%(levelname)s: %(message)s"
 minversion = 6.0
 addopts = "--strict-markers -ra"
 xfail_strict = true
 testpaths = [
   "tests",
 ]
-
 
 [tool.isort]
 profile = "black"
