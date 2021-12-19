@@ -14,6 +14,8 @@ import pytest
         pytest.param(3, 2, ["example", "input"], id="3-2"),
         pytest.param(4, 1, ["example", "input"], id="4-1"),
         pytest.param(4, 2, ["example", "input"], id="4-2"),
+        pytest.param(5, 1, ["example", "input"], id="5-1"),
+        pytest.param(5, 2, ["example", "input"], id="5-2"),
     ],
 )
 def test_should_solve_puzzle(load_fixtures, solve_puzzle, day: int, part: int, fixtures: List[str]) -> None:
