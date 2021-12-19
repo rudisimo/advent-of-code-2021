@@ -12,6 +12,8 @@ import pytest
         pytest.param(2, 2, ["example", "input"], id="2-2"),
         pytest.param(3, 1, ["example", "input"], id="3-1"),
         pytest.param(3, 2, ["example", "input"], id="3-2"),
+        pytest.param(4, 1, ["example", "input"], id="4-1"),
+        pytest.param(4, 2, ["example", "input"], id="4-2"),
     ],
 )
 def test_should_solve_puzzle(load_fixtures, solve_puzzle, day: int, part: int, fixtures: List[str]) -> None:
@@ -19,5 +21,5 @@ def test_should_solve_puzzle(load_fixtures, solve_puzzle, day: int, part: int, f
         fixtures = load_fixtures(day, part, fixtures)
         for (input, expected) in fixtures:
             assert solve_puzzle(day, part, input) == expected
-    except Exception as e:
+    except (FileNotFoundError, NotImplementedError) as e:
         pytest.skip(f"Reason: [{type(e).__name__}] {e}")
